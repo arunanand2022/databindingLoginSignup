@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.evontech.twowaydatabindingloginsignup.app-mergeDebugResources-48:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "map": [
+                {
+                    "source": "/home/arun/.gradle/caches/transforms-3/71cdc532c1262f6f0482eb61edc35c30/transformed/material-1.6.1/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,191",
+                        "endColumns": "135,140",
+                        "endOffsets": "186,327"
+                    }
+                }
+            ]
+        }
+    ]
+}

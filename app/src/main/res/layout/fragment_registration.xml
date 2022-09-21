@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="signupModel"
+            type="com.evontech.twowaydatabindingloginsignup.viewModel.LoginSignupViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragment.RegistrationFragment"
+        android:background="@color/light_gray">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_twenty"
+            app:cardCornerRadius="@dimen/margin_five"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_ten">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registration"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="121dp" />
+
+                <EditText
+                    android:id="@+id/et_fullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_ten"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:layout_marginRight="@dimen/margin_ten"
+                    android:background="@drawable/edittext_rect_bg"
+                    android:ems="10"
+                    android:hint="@string/full_name"
+                    android:text="@={signupModel.inputName}"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_sixteen"
+                    android:autofillHints="" />
+                <EditText
+                    android:id="@+id/et_emailid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_ten"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:layout_marginRight="@dimen/margin_ten"
+                    android:background="@drawable/edittext_rect_bg"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:text="@={signupModel.inputEmail}"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_sixteen"
+                    android:autofillHints="" />
+                <EditText
+                    android:id="@+id/et_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_ten"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:layout_marginRight="@dimen/margin_ten"
+                    android:background="@drawable/edittext_rect_bg"
+                    android:ems="10"
+                    android:hint="@string/mobileno"
+                    android:text="@={signupModel.inputMobile}"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_sixteen"
+                    android:autofillHints="" />
+
+
+                <EditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_ten"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:layout_marginRight="@dimen/margin_ten"
+                    android:background="@drawable/edittext_rect_bg"
+                    android:ems="10"
+                    android:hint="@string/user_name"
+                    android:text="@={signupModel.inputUserName}"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_sixteen"
+                    android:autofillHints="" />
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_ten"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:layout_marginRight="@dimen/margin_ten"
+                    android:background="@drawable/edittext_rect_bg"
+                    android:ems="10"
+                    android:hint="@string/password"
+                    android:text="@={signupModel.inputPassword}"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:padding="@dimen/padding_ten"
+                    android:autofillHints="" />
+                <EditText
+                    android:id="@+id/et_cnf_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_ten"
+                    android:layout_marginTop="@dimen/margin_twenty"
+                    android:layout_marginRight="@dimen/margin_ten"
+                    android:background="@drawable/edittext_rect_bg"
+                    android:ems="10"
+                    android:hint="@string/cnf_password"
+                    android:text="@={signupModel.inputCnfPassword}"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:padding="@dimen/padding_ten"
+                    android:autofillHints="" />
+
+                <Button
+                    android:id="@+id/btn_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup"
+                    android:layout_gravity="center"
+                    android:onClick="@{(v) -> signupModel.signup(v)}"
+                    android:layout_marginTop="@dimen/margin_twenty"/>
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/a_member"
+                    android:layout_margin="@dimen/margin_twenty"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
