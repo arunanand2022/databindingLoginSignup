@@ -34,6 +34,9 @@ class LoginSignupViewModel(application: Application):AndroidViewModel(applicatio
     private val _navigatetoHome = MutableLiveData<Boolean>()
     val navigatetoHome: LiveData<Boolean> get() = _navigatetoHome
 
+    private val _showerrorMessage = MutableLiveData<String>()
+    val showerrorMessage: LiveData<String> get() = _showerrorMessage
+
     private val repository: LoginSignupRepository
 
     init {
@@ -67,7 +70,7 @@ class LoginSignupViewModel(application: Application):AndroidViewModel(applicatio
                 val response = repository.getUsername(LoginSignupModel(null,userName.toString(),password.toString(),"","","","","", ""))
                 if (response != null){
                     //Toast.makeText(getApplication(),"user name already exist!!",Toast.LENGTH_LONG).show()
-                    _navigatetoLogin.postValue(false)
+                    _showerrorMessage.postValue("username")
                 }else{
                     repository.signupUserDetails(LoginSignupModel(null,userName.toString(),password.toString(),name,"","",email,mobile, Date().toString()))
                     inputName.postValue("")
@@ -100,12 +103,12 @@ class LoginSignupViewModel(application: Application):AndroidViewModel(applicatio
                         inputUserName.postValue("")
                         inputPassword.postValue("")
                     }else{
-                        _navigatetoHome.postValue(false)
-                        Log.d("result=>", result.toString())
+                        _showerrorMessage.postValue("password")
+                       // Log.d("result=>", result.toString())
                         //Toast.makeText(getApplication(), "Please check password", Toast.LENGTH_LONG).show()
                     }
                 }else{
-                    _navigatetoHome.postValue(false)
+                    _showerrorMessage.postValue("username")
                     //Toast.makeText(getApplication(), "Please check user name", Toast.LENGTH_LONG).show()
                 }
 
@@ -118,5 +121,8 @@ class LoginSignupViewModel(application: Application):AndroidViewModel(applicatio
     }
     fun doneNavigatingToHome() {
         _navigatetoHome.postValue(false)
+    }
+    fun showErrorMessage() {
+        _showerrorMessage.postValue("")
     }
 }

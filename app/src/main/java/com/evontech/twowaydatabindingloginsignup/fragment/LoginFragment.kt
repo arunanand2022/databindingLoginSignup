@@ -40,16 +40,21 @@ class LoginFragment : Fragment() {
 
         }
 
+        loginSignupViewModel.showerrorMessage.observe(viewLifecycleOwner, Observer {
+            if (it.equals("username")){
+                Toast.makeText(requireContext(), "User Name already exist!!", Toast.LENGTH_LONG).show()
+            }else{
+                loginSignupViewModel.showErrorMessage()
+            }
+        })
+
         loginSignupViewModel.navigatetoHome.observe(viewLifecycleOwner,Observer{
-            if (it){
+            if (it==true){
                 activity?.apply {
                     val intent = Intent(requireActivity(),HomeActivity::class.java)
                     startActivity(intent)
                 }
                 loginSignupViewModel.doneNavigatingToHome()
-            }else{
-                Toast.makeText(requireContext(), "Please try again", Toast.LENGTH_LONG).show()
-
             }
 
         })

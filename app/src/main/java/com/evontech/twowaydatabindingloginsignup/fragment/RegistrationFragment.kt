@@ -34,14 +34,19 @@ class RegistrationFragment : Fragment() {
             NavHostFragment.findNavController(this).navigate(action)
         }
 
+        loginSignupViewModel.showerrorMessage.observe(viewLifecycleOwner, Observer {
+            if (it.equals("username")){
+                Toast.makeText(requireContext(), "User Name already exist!!", Toast.LENGTH_LONG).show()
+            }else{
+                loginSignupViewModel.showErrorMessage()
+            }
+        })
+
         loginSignupViewModel.navigatetoLogin.observe(viewLifecycleOwner, Observer {
-            if (it){
+            if (it== true){
                 val action = RegistrationFragmentDirections.actionRegistrationFragmentToLoginFragment()
                 NavHostFragment.findNavController(this).navigate(action)
                 loginSignupViewModel.doneNavigatingToLogin()
-            }else{
-                Toast.makeText(requireContext(), "Please try again", Toast.LENGTH_LONG).show()
-
             }
 
         })
